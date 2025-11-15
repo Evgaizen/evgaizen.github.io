@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { Navbar } from "./index";
+import { Navbar } from "./Navbar";
 
 const LINKS = [
   {
