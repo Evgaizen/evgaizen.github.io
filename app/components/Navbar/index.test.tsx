@@ -15,7 +15,7 @@ const LINKS = [
 
 describe("Navbar", () => {
   it("Should have links with given links array", () => {
-    render(<Navbar links={LINKS} />);
+    render(<Navbar links={LINKS} avatar={<></>} />);
 
     LINKS.forEach((el) => {
       const link = screen.getByText<HTMLAnchorElement>(new RegExp(el.text));
@@ -23,5 +23,12 @@ describe("Navbar", () => {
       expect(link).toBeDefined();
       expect(link.href).toBe(el.url);
     });
+  });
+
+  it("Should render given avatar component", () => {
+    const testId = "avatar";
+    render(<Navbar links={LINKS} avatar={<div data-testid={testId}></div>} />);
+
+    expect(screen.getByTestId(testId)).toBeDefined();
   });
 });
